@@ -56,3 +56,4 @@ public class NotificationTask {
     public void setNotifyAt(LocalDateTime notifyAt) { this.notifyAt = notifyAt; }
     public void setStatus(TaskStatus status) { this.status = status; }
 }
+//

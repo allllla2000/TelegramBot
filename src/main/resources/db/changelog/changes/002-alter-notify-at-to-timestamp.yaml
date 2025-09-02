@@ -12,3 +12,4 @@ databaseChangeLog:
             tableName: notification_task
             columnName: notify_at
             newDataType: TIMESTAMP WITH TIME ZONE
+            //

@@ -48,3 +48,4 @@ databaseChangeLog:
               - column: { name: chat_id }
       rollback:
         - dropTable: { tableName: notification_task }
+          //

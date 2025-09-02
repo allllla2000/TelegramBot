@@ -5,3 +5,4 @@ databaseChangeLog:
   - include:
       file: changes/002-alter-notify-at-to-timestamp.yaml
       relativeToChangelogFile: true
+      //
