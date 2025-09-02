@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-notification-task
+      author: you
+      changes:
+        - createTable:
+            tableName: notification_task
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: chat_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: message
+                  type: TEXT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: notify_at
+                  type: TIMESTAMP WITH TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(16)
+                  defaultValue: PENDING
+              - column:
+                  name: created_at
+                  type: TIMESTAMP WITH TIME ZONE
+                  defaultValueComputed: CURRENT_TIMESTAMP
+        - createIndex:
+            tableName: notification_task
+            indexName: idx_notification_task_notify_at
+            columns:
+              - column: { name: notify_at }
+        - createIndex:
+            tableName: notification_task
+            indexName: idx_notification_task_chat_id
+            columns:
+              - column: { name: chat_id }
+      rollback:
+        - dropTable: { tableName: notification_task }

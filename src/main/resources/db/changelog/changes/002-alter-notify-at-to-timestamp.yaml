@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-alter-notify-at
+      author: you
+      changes:
+        - modifyDataType:
+            tableName: notification_task
+            columnName: notify_at
+            newDataType: TIMESTAMP WITHOUT TIME ZONE
+      rollback:
+        - modifyDataType:
+            tableName: notification_task
+            columnName: notify_at
+            newDataType: TIMESTAMP WITH TIME ZONE
